@@ -1,0 +1,66 @@
+#Pipeline GitLab
+
+stages: 
+  - validate 
+  - plan 
+  - apply 
+
+image: 
+  name: brunalima9254/opentofu:1.6 
+
+variables: 
+  TF_DIR: ${CI_PROJECT_DIR}/dir-terraform-files/.opentofu/ 
+
+cache: 
+  paths: 
+    - ${CI_PROJECT_DIR}/dir-terraform-files/.opentofu/ 
+
+before_script: 
+  - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY   #configure as variaveis com as credenciais
+  - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID           #configure as variaveis com as credenciais
+  - export GITLAB_ACCESS_TOKEN=$TOKEN 
+  - cd ${TF_DIR} 
+  - pwd 
+  - tofu --version 
+  - tofu init 
+
+ 
+validate-branch: 
+  stage: validate 
+  script: 
+    - tofu validate 
+  only: 
+    - merge_requests 
+
+plan-branch: 
+  stage: plan 
+  script: 
+    - tofu plan 
+  dependencies: 
+    - validate 
+  only: 
+    - merge_requests 
+
+validate: 
+  stage: validate 
+  script: 
+    - tofu validate 
+  only: 
+    - master 
+
+plan-main: 
+  stage: plan 
+  script: 
+    - tofu plan 
+  only: 
+    - master 
+
+apply: 
+  stage: apply 
+  script: 
+    - tofu apply -auto-approve 
+  dependencies: 
+    - plan-main 
+  only: 
+    - master 
+  when: manual 
