@@ -8,7 +8,7 @@ Arquivo do Dockerfile: [Dockerfile](https://raw.githubusercontent.com/Bruna0092/
 docker build -t opentofu:tag .
 ```
 
-#### Deploy
+#### Deploy:
 
 No diretorio do projeto, crie o arquivo de CI [.gitlab-ci.yml](https://github.com/Bruna0092/opentofu/blob/main/.gitlab-ci.yml)
 
@@ -18,3 +18,12 @@ AWS_SECRET_ACCESS_KEY
 AWS_ACCESS_KEY_ID
 ```
 
+#### Observações:
+
+No arquivo de ci/cd na linha:
+```
+TF_DIR: ${CI_PROJECT_DIR}/dir-terraform-files/
+```
+Altere para o diretorio onde estão os arquivos .tf
+
+Totalmente compativel para migração do Terraform. 🌟🌟🌟
