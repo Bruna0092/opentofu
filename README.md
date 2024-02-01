@@ -2,7 +2,7 @@
 
 #### Build da imagem:
 
-Arquivo do Dockerfile: (!Dockerfile)[https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile]
+Arquivo do Dockerfile: [!Dockerfile](https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile)
 
 ```docker build opentofu:tag .
 ```
