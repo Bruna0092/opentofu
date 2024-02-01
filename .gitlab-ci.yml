@@ -9,7 +9,7 @@ image:
   name: brunalima9254/opentofu:1.6 
 
 variables: 
-  TF_DIR: ${CI_PROJECT_DIR}/dir-terraform-files/.opentofu/ 
+  TF_DIR: ${CI_PROJECT_DIR}/dir-terraform-files/
 
 cache: 
   paths: 
