@@ -2,21 +2,17 @@
 
 #### Build da imagem:
 
-Arquivo do Dockerfile: [!Dockerfile](https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile)
+Arquivo do Dockerfile: [Dockerfile](https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile)
 
 ```docker build opentofu:tag .
 ```
 
-#### Retorna um item
+#### Deploy
 
-```http
-  GET /api/items/${id}
+No diretorio do projeto, crie o arquivo de CI [.gitlab-ci.yml](https://github.com/Bruna0092/opentofu/blob/main/.gitlab-ci.yml)
+
+Configure as variaveis de credencial para o aws cli nas configurações de ci/cd do projeto:
+```AWS_SECRET_ACCESS_KEY 
+AWS_ACCESS_KEY_ID
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
-
-#### add(num1, num2)
-
-Recebe dois números e retorna a sua soma.
