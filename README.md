@@ -2,8 +2,9 @@
 
 #### Build da imagem:
 
-Arquivo do Dockerfile: (Dockerfile)[https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile]
-```docker build opentofu:versao .
+Arquivo do Dockerfile: (!Dockerfile)[https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile]
+
+```docker build opentofu:tag .
 ```
 
 #### Retorna um item
