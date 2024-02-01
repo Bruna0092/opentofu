@@ -4,7 +4,8 @@
 
 Arquivo do Dockerfile: [Dockerfile](https://raw.githubusercontent.com/Bruna0092/opentofu/main/Dockerfile)
 
-```docker build opentofu:tag .
+```
+docker build -t opentofu:tag .
 ```
 
 #### Deploy
@@ -12,7 +13,8 @@ Arquivo do Dockerfile: [Dockerfile](https://raw.githubusercontent.com/Bruna0092/
 No diretorio do projeto, crie o arquivo de CI [.gitlab-ci.yml](https://github.com/Bruna0092/opentofu/blob/main/.gitlab-ci.yml)
 
 Configure as variaveis de credencial para o aws cli nas configurações de ci/cd do projeto:
-```AWS_SECRET_ACCESS_KEY 
+```
+AWS_SECRET_ACCESS_KEY 
 AWS_ACCESS_KEY_ID
 ```
 
